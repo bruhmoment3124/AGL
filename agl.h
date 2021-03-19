@@ -1,7 +1,7 @@
 #include <GLFW/glfw3.h>
 
 /*creates window and clears it a certain color*/
-int clear(int width, int height, float color[3])
+int win(int width, int height, float color[3])
 {
 	glfwInit(); /*initialize glfw*/
 		
@@ -12,10 +12,13 @@ int clear(int width, int height, float color[3])
 	while(!glfwWindowShouldClose(window))
 	{
 		/*clear screen*/
-    glClear(GL_COLOR_BUFFER_BIT);
-		glClearColor(color[1], color[2], color[3], 255); /*clear window specified color*/
+		glClear(GL_COLOR_BUFFER_BIT);
+		float r = color[0] / 255.0f; /*red*/
+		float g = color[1] / 255.0f; /*green*/
+		float b = color[2] / 255.0f; /*blue*/
+		glClearColor(r, g, b, 255); /*clear window specified color*/
 		
-    glfwSwapBuffers(window);
+		glfwSwapBuffers(window);
     glfwPollEvents(); /*input*/
 	}
 	
