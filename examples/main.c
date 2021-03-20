@@ -2,8 +2,8 @@
 
 void main()
 {
-	float p[3] = {82.0, 75.0, 163.0}; /*palette*/
-	while(win(500, 500, p)) /*start drawing and updating loop*/
+	win("Hello, World!", 500, 500);
+	while(loop(82.0, 75.0, 163.0)) /*set window color*/
 	{
 		
 	}
