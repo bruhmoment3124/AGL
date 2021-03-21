@@ -17,6 +17,8 @@ void win(char *title, int width, int height)
 /*window loop*/
 int loop(int r, int g, int b) /*background values*/
 {
+	if(khold(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
+	
   glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
 	float c1 = (float)r / 255.0f; /*red*/
 	float c2 = (float)g / 255.0f; /*green*/
@@ -24,9 +26,6 @@ int loop(int r, int g, int b) /*background values*/
 	glClearColor(c1, c2, c3, 255); /*clear window specified color*/
 	glfwSwapBuffers(window);
 	glfwPollEvents(); /*input*/
-	
-	if(khold(GLFW_KEY_ESCAPE)) return 0;
-	return 1;
 }
 
 /******************
