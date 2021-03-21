@@ -17,7 +17,7 @@ void win(char *title, int width, int height)
 /*window loop*/
 int loop(int r, int g, int b) /*background values*/
 {
-	if(khold(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
+	if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
 	
   glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
 	float c1 = (float)r / 255.0f; /*red*/
@@ -32,14 +32,7 @@ int loop(int r, int g, int b) /*background values*/
 /keyboard functions
 /*****************/
 
-/*keyboard press*/
-int kpress(int key)
-{
-	
-}
-
-/*keyboard hold*/
-int khold(int key)
+int input(int key)
 {
 	int state = glfwGetKey(window, key);
 	if(state == GLFW_PRESS) return state;
