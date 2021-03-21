@@ -2,32 +2,46 @@
 
 GLFWwindow *window; /*create window object*/
 
+/****************
+/window functions
+/***************/
+
 /*creates window*/
 void win(char *title, int width, int height)
 {
 	glfwInit(); /*initialize glfw*/
-	
-	/*create a window with glfw*/
-  window = glfwCreateWindow(width, height, title, NULL, NULL);
+  window = glfwCreateWindow(width, height, title, NULL, NULL); /*create a window with glfw*/
 	glfwMakeContextCurrent(window);
 }
 
 /*window loop*/
-int loop(float r, float g, float b) /*background values*/
+int loop(int r, int g, int b) /*background values*/
 {
-	while(!glfwWindowShouldClose(window))
-	{
-		/*clear screen*/
-		glClear(GL_COLOR_BUFFER_BIT);
-		float c1 = r / 255.0f; 
-		float c2 = g / 255.0f; 
-		float c3 = b / 255.0f;
-		glClearColor(c1, c2, c3, 255); /*clear window specified color*/
-		glfwSwapBuffers(window);
-    glfwPollEvents(); /*input*/
-	}
-	glfwDestroyWindow(window); /*gets rid of window*/
-	glfwTerminate(); /*ends glfw*/
+  glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
+	float c1 = (float)r / 255.0f; /*red*/
+	float c2 = (float)g / 255.0f; /*green*/
+	float c3 = (float)b / 255.0f; /*blue*/
+	glClearColor(c1, c2, c3, 255); /*clear window specified color*/
+	glfwSwapBuffers(window);
+	glfwPollEvents(); /*input*/
 	
-	return 0;
+	if(khold(GLFW_KEY_ESCAPE)) return 0;
+	return 1;
+}
+
+/******************
+/keyboard functions
+/*****************/
+
+/*keyboard press*/
+int kpress(int key)
+{
+	
+}
+
+/*keyboard hold*/
+int khold(int key)
+{
+	int state = glfwGetKey(window, key);
+	if(state == GLFW_PRESS) return state;
 }
