@@ -18,6 +18,7 @@ void win(char *title, int width, int height)
 int loop(int r, int g, int b) /*background values*/
 {
   if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
+	glfwSwapBuffers(window);
 	
 	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
 	float c1 = (float)r / 255.0f; /*red*/
@@ -30,12 +31,6 @@ int loop(int r, int g, int b) /*background values*/
 /*****************
 /drawing functions
 /****************/
-
-/*end drawing*/
-void dend()
-{
-	glfwSwapBuffers(window);
-}
 
 /*draw a line*/
 void dline(int x1, int y1, int x2, int y2, float r, float g, float b)
