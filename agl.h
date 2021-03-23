@@ -1,6 +1,8 @@
 #include <GLFW/glfw3.h>
 
 GLFWwindow *window; /*create window object*/
+static float width; /*screen width*/
+static float height; /*screen height*/
 
 /****************
 /window functions
@@ -38,16 +40,23 @@ void dend()
 }
 
 /*draw a line*/
-void dline(int x1, int y1, int x2, int y2)
+void dline(int x1, int y1, int x2, int y2, float r, float g, float b)
 {
-	float q1 = (float)x1 / 250;
-	float q2 = (float)x2 / 250;
-	float p1 = (float)y1 / 250;
-	float p2 = (float)y2 / 250;
+	/*color values*/
+	r /= 255.0f;
+	g /= 255.0f;
+	b /= 255.0f;
+	
+	/*convert opengl float values to standard X and Y*/
+	float q1 = (float)x1 / 500.0f;
+	float q2 = (float)x2 / 500.0f;
+	float p1 = (float)y1 / 500.0f;
+	float p2 = (float)y2 / 500.0f;
 	
 	glBegin(GL_LINE_STRIP);
 		glVertex2f(q1, p1);
 		glVertex2f(q2, p2);
+		glColor3f(r, g, b);
 	glEnd();
 }
 
