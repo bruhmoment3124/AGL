@@ -21,12 +21,20 @@ void win(char *title, int width, int height)
 }
 
 /*window loop*/
-int loop(int r, int g, int b) /*background values*/
+int loop(int hex) /*background values*/
 {
   if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
 	glfwSwapBuffers(window);
 	
 	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
+	
+	/*convert hex*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	
+	/*convert float*/
 	float c1 = (float)r / 255.0f; /*red*/
 	float c2 = (float)g / 255.0f; /*green*/
 	float c3 = (float)b / 255.0f; /*blue*/
@@ -39,9 +47,14 @@ int loop(int r, int g, int b) /*background values*/
 /****************/
 
 /*draw a line*/
-void dline(int x1, int y1, int x2, int y2, float r, float g, float b)
+void dline(int x1, int y1, int x2, int y2, int hex)
 {
 	/*color values*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	
 	r /= 255.0f;
 	g /= 255.0f;
 	b /= 255.0f;
