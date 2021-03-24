@@ -1,6 +1,8 @@
 #include <GLFW/glfw3.h>
 
 GLFWwindow *window; /*create window object*/
+static int sw; /*screen width*/
+static int sh; /*screen height*/
 
 /****************
 /window functions
@@ -12,6 +14,10 @@ void win(char *title, int width, int height)
 	glfwInit(); /*initialize glfw*/
   window = glfwCreateWindow(width, height, title, NULL, NULL); /*create a window with glfw*/
 	glfwMakeContextCurrent(window);
+	
+	/*set screen variables for use in other functions*/
+	sw = width;
+	sh = height;
 }
 
 /*window loop*/
@@ -41,10 +47,10 @@ void dline(int x1, int y1, int x2, int y2, float r, float g, float b)
 	b /= 255.0f;
 
 	/*convert opengl float values to standard X and Y*/
-	float q1 = (float)x1 / 500.0f;
-  float p1 = (float)y1 / 500.0f;
-	float q2 = (float)x2 / 500.0f;
-	float p2 = (float)y2 / 500.0f;
+	float q1 = (float)x1 / (float)sw;
+  float p1 = (float)y1 / (float)sh;
+	float q2 = (float)x2 / (float)sw;
+	float p2 = (float)y2 / (float)sh;
 	
 	glBegin(GL_LINE_STRIP);
 		glVertex2f(q1, p1);
@@ -60,5 +66,5 @@ void dline(int x1, int y1, int x2, int y2, float r, float g, float b)
 int input(int key)
 {
 	int state = glfwGetKey(window, key);
-	if(state == GLFW_PRESS) return state;
+	return state;
 }
