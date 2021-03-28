@@ -23,9 +23,8 @@ void win(char *title, int width, int height)
 /*window loop*/
 int loop(int hex) /*background values*/
 {
-  if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
-	glfwSwapBuffers(window);
-	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
+	glfwPollEvents(); /*input*/
+ 	if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
 	
 	/*convert hex*/
 	float r, g, b;
@@ -38,7 +37,13 @@ int loop(int hex) /*background values*/
 	g /= 255.0f; /*green*/
 	b /= 255.0f; /*blue*/
 	glClearColor(r, g, b, 255); /*clear window specified color*/
-	glfwPollEvents(); /*input*/
+	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
+}
+
+/*end drawing*/
+void end()
+{
+	glfwSwapBuffers(window);
 }
 
 /*****************
@@ -86,10 +91,10 @@ void drect(float x, float y, float w, float h, int hex)
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
   y /= (float)sh;
-	w /= (float)sw;
-	h /= (float)sw;
+	w = (w * 2) / (float)sw;
+	h = (h * 2) / (float)sh;
 	
-	glBegin(GL_POLYGON);
+	glBegin(GL_QUADS);
 		glVertex2f(x, y);
 		glVertex2f(x + w, y);
 		glVertex2f(x + w, y - h);
