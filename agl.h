@@ -129,8 +129,8 @@ void dcirc(float x, float y, float rad, int hex)
 		{
 			theta = i * 3.142 / 180;
 			glVertex2f(x + rad * cos(theta), y + rad * sin(theta));
-			glColor3f(r, g, b);
 		}
+		glColor3f(r, g, b);
 	glEnd();
 }
 
