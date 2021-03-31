@@ -23,28 +23,29 @@ void win(char *title, int width, int height)
 
 /*window loop*/
 int loop(int hex) /*background values*/
-{
-	glfwPollEvents(); /*input*/
- 	if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
-	
+{		
+	if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
+
 	/*convert hex*/
 	float r, g, b;
 	r = hex >> 16;
 	g = (hex & 0x00ff00) >> 8;
 	b = (hex & 0x0000ff);
-	
+
 	/*convert float*/
 	r /= 255.0f; /*red*/
 	g /= 255.0f; /*green*/
 	b /= 255.0f; /*blue*/
+	
 	glClearColor(r, g, b, 255); /*clear window specified color*/
 	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
 }
 
-/*end drawing*/
+/*end drawing and begin input*/
 void end()
 {
 	glfwSwapBuffers(window);
+	glfwPollEvents(); /*input*/
 }
 
 /*****************
@@ -84,7 +85,6 @@ void drect(float x, float y, float w, float h, int hex)
 	r = hex >> 16;
 	g = (hex & 0x00ff00) >> 8;
 	b = (hex & 0x0000ff);
-	
 	r /= 255.0f;
 	g /= 255.0f;
 	b /= 255.0f;
