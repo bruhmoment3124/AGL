@@ -7,7 +7,7 @@ creates window, with a title and a specific width and height
 takes a hexadecimal value and clears the screen that color constantly
 
 #### end()
-ends drawing, should be done before input is taken
+ends drawing, HAS TO be done before input is taken
 
 #### dline(int x1, int y1, int x2, int y1, int hex)
 takes first x position, first y position, second x position, second y position, color
