@@ -21,3 +21,17 @@ takes x position, y position, radius, color and draw a circle
 
 #### input(int key)
 takes input based on ascii values
+
+# [Examples](https://github.com/bruhmoment3124/AGL/tree/main/examples)
+```
+#include <AGL.h>
+
+main()
+{
+  win("Hello, World! (press escape to quit)", 1000, 500);
+	while(loop(0xdcac6c)) /*set window color*/
+	{
+		end();
+	}
+}
+```
