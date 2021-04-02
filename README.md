@@ -28,7 +28,7 @@ takes input based on ascii values
 
 main()
 {
-  win("Hello, World! (press escape to quit)", 1000, 500);
+  	win("Hello, World! (press escape to quit)", 1000, 500);
 	while(loop(0xdcac6c)) /*set window color*/
 	{
 		end();
