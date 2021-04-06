@@ -1,6 +1,12 @@
 #include <math.h>
 #include <GLFW/glfw3.h>
 
+#ifdef __linux__
+	#include <unistd.h>
+#elif __WIN32
+	#include <windows.h>
+#endif
+
 GLFWwindow *window; /*create window object*/
 static int sw; /*screen width*/
 static int sh; /*screen height*/
@@ -141,5 +147,6 @@ void dcirc(float x, float y, float rad, int hex)
 int input(int key)
 {
 	int state = glfwGetKey(window, key);
+	Sleep(1);
 	return state;
 }
