@@ -29,9 +29,7 @@ void win(char *title, int width, int height)
 
 /*window loop*/
 int loop(int hex) /*background values*/
-{		
-	if(input(GLFW_KEY_ESCAPE)) return 0; /*exit the program*/
-
+{	
 	/*convert hex*/
 	float r, g, b;
 	r = hex >> 16;
@@ -77,9 +75,9 @@ void dline(float x1, float y1, float x2, float y2, int hex)
 	y2 /= (float)sh;
 	
 	glBegin(GL_LINE_STRIP);
+		glColor3f(r, g, b);
 		glVertex2f(x1, y1);
 		glVertex2f(x2, y2);
-		glColor3f(r, g, b);
 	glEnd();
 }
 
@@ -98,16 +96,16 @@ void drect(float x, float y, float w, float h, int hex)
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
   y /= (float)sh;
-	w = (w * 2) / (float)sw;
-	h = (h * 2) / (float)sh;
+	w /= (float)sw;
+	h /= (float)sh;
 	
 	glBegin(GL_QUADS);
+		glColor3f(r, g, b);
 		glVertex2f(x, y);
 		glVertex2f(x + w, y);
 		glVertex2f(x + w, y - h);
 		glVertex2f(x, y - h);
 		glVertex2f(x + w, y - h);
-		glColor3f(r, g, b);
 	glEnd();
 }
 
@@ -130,13 +128,13 @@ void dcirc(float x, float y, float rad, int hex)
 	
 	float theta;
 	glBegin(GL_POLYGON);
+		glColor3f(r, g, b);
 		int i;
 		for(i=0; i<360; i++)
 		{
 			theta = i * 3.142 / 180;
 			glVertex2f(x + rad * cos(theta), y + rad * sin(theta));
 		}
-		glColor3f(r, g, b);
 	glEnd();
 }
 
