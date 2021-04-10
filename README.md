@@ -16,8 +16,8 @@ and then draws a line
 #### drect(int x, int y, int w, int h, int hex)
 takes x position, y position, width, height, color and draws a rectangle 
 
-#### dcirc(int x, int y, int r, int hex)
-takes x position, y position, radius, color and draws a circle
+#### dcirc(int x, int y, int radx, rady, int hex)
+takes x position, y position, radius x, radius y, color and draws a circle or oval
 
 #### input(int key)
 takes input based on ascii values
