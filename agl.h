@@ -96,8 +96,8 @@ void drect(float x, float y, float w, float h, int hex)
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
   y /= (float)sh;
-	w /= (float)sw;
-	h /= (float)sh;
+	w = (w / (float)sw) * 2;
+	h = (h / (float)sh) * 2;
 	
 	glBegin(GL_QUADS);
 		glColor3f(r, g, b);
@@ -105,12 +105,11 @@ void drect(float x, float y, float w, float h, int hex)
 		glVertex2f(x + w, y);
 		glVertex2f(x + w, y - h);
 		glVertex2f(x, y - h);
-		glVertex2f(x + w, y - h);
 	glEnd();
 }
 
 /*draw a circle*/
-void dcirc(float x, float y, float rad, int hex)
+void dcirc(float x, float y, float radx, float rady, int hex)
 {
 	/*color values*/
 	float r, g, b;
@@ -124,7 +123,8 @@ void dcirc(float x, float y, float rad, int hex)
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
   y /= (float)sh;
-	rad /= (float)sw;
+	radx /= (float)sw;
+	rady /= (float)sh;
 	
 	float theta;
 	glBegin(GL_POLYGON);
@@ -133,7 +133,7 @@ void dcirc(float x, float y, float rad, int hex)
 		for(i=0; i<360; i++)
 		{
 			theta = i * 3.142 / 180;
-			glVertex2f(x + rad * cos(theta), y + rad * sin(theta));
+			glVertex2f(x + radx * cos(theta), y + rady * sin(theta));
 		}
 	glEnd();
 }
