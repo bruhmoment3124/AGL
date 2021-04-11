@@ -24,7 +24,7 @@ main()
   win("Hello, World!", 500, 500);
 	while(loop(0xFFFFFF)) /*set window color*/
 	{
-		gen(1000, 32, 0x000000);
+		gen(500, 16, 0x000000);
 		end();
 	}
 }

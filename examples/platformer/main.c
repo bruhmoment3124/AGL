@@ -21,8 +21,8 @@ main()
   win("Hello, World!", 500, 500);
 	while(loop(0xdbdbdd)) /*set window color*/
 	{
-		drect(-500, -400, 1000, 100, 0x1f1e23);
-		drect(x, y, 100, 100, 0xe55656);
+		drect(-500, -400, 500, 50, 0x1f1e23);
+		drect(x, y, 50, 50, 0xe55656);
 		end();
 		
 		dy-=1;
