@@ -22,9 +22,7 @@ void gen(int cycles, int size, int hex)
 main()
 {
   win("Hello, World!", 500, 500);
-	while(loop(0xFFFFFF)) /*set window color*/
-	{
+	begin(0xFFFFFF);
 		gen(500, 16, 0x000000);
-		end();
-	}
+	end();
 }

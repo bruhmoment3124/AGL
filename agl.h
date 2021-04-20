@@ -133,4 +133,5 @@ void dcirc(float x, float y, float radx, float rady, int hex)
 			theta = i * 3.142 / 180;
 			glVertex2f(x + radx * cos(theta), y + rady * sin(theta));
 		}
+	glEnd();
 }
