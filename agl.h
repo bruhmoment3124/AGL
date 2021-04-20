@@ -1,12 +1,6 @@
 #include <math.h>
 #include <GLFW/glfw3.h>
 
-#ifdef __linux__
-	#include <unistd.h>
-#elif __WIN32
-	#include <windows.h>
-#endif
-
 GLFWwindow *window; /*create window object*/
 static int sw; /*screen width*/
 static int sh; /*screen height*/
@@ -28,7 +22,7 @@ void win(char *title, int width, int height)
 }
 
 /*window loop*/
-int loop(int hex) /*background values*/
+void begin(int hex) /*background values*/
 {	
 	/*convert hex*/
 	float r, g, b;
@@ -45,11 +39,15 @@ int loop(int hex) /*background values*/
 	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
 }
 
-/*end drawing and begin input*/
+/*end drawing*/
 void end()
 {
 	glfwSwapBuffers(window);
-	glfwPollEvents(); /*input*/
+	while(!glfwWindowShouldClose(window))
+	{
+		glfwPollEvents();
+	}
+	glfwTerminate();
 }
 
 /*****************
@@ -135,16 +133,4 @@ void dcirc(float x, float y, float radx, float rady, int hex)
 			theta = i * 3.142 / 180;
 			glVertex2f(x + radx * cos(theta), y + rady * sin(theta));
 		}
-	glEnd();
-}
-
-/******************
-/keyboard functions
-/*****************/
-
-int input(int key)
-{
-	int state = glfwGetKey(window, key);
-	Sleep(1);
-	return state;
 }
