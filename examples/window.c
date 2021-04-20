@@ -3,8 +3,7 @@
 main()
 {
   win("Hello, World!", 500, 500);
-	while(loop(0xFFFFFF)) /*set window color*/
-	{
-		end();
-	}
+	begin(0xFFFFFF); /*set window color*/
+		
+	end();
 }
