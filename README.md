@@ -20,6 +20,7 @@ takes x position, y position, width, height, color and draws a rectangle
 takes x position, y position, radius x, radius y, color and draws a circle or oval
 
 # [Examples](https://github.com/bruhmoment3124/AGL/tree/main/examples)
+There are 2 ways to make a window with AGL, first is:
 ```
 #include <AGL.h>
 
@@ -31,3 +32,20 @@ main()
 	end();
 }
 ```
+second is:
+```
+#include <AGL.h>
+
+main()
+{
+  	GLFWwindow *win = win("Hello, World!", 1000, 500);
+	while(!glfwWindowShouldClose(win))
+	{
+		begin(0xFFFFFF); /*set window color*/
+		glfwSwapBuffers();
+		glfwPollEvents();
+	}
+	glfwTerminate();
+}
+```
+the first method uses AGL as a standalone graphics library the second uses AGL in conjunction with GLFW
