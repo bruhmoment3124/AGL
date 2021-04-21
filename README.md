@@ -48,4 +48,4 @@ main()
 	glfwTerminate();
 }
 ```
-the first method uses AGL as a standalone graphics library the second uses AGL in conjunction with GLFW
+the first method uses AGL as a standalone graphics library and the second uses AGL in conjunction with GLFW
