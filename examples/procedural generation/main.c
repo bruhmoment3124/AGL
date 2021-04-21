@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "../../AGL.h"
@@ -12,17 +13,23 @@ void gen(int cycles, int size, int hex)
 	for(i=0; i<=cycles; i++)
 	{
 		int dir = rand() % 4; /*random direction*/
-		if(dir == 0) drect(x, y += size, size, size, hex); /*up*/
-		if(dir == 1) drect(x += size, y, size, size, hex); /*right*/
-		if(dir == 2) drect(x, y -= size, size, size, hex); /*down*/
-		if(dir == 3) drect(x -= size, y, size, size, hex); /*left*/
+		if(dir == 0) agl_rectangle(x, y += size, size, size, hex); /*up*/
+		if(dir == 1) agl_rectangle(x += size, y, size, size, hex); /*right*/
+		if(dir == 2) agl_rectangle(x, y -= size, size, size, hex); /*down*/
+		if(dir == 3) agl_rectangle(x -= size, y, size, size, hex); /*left*/
 	}
 }
 
 main()
 {
-  win("Hello, World!", 500, 500);
-	begin(0xFFFFFF);
-		gen(500, 16, 0x000000);
-	end();
+	int tiles; int size;
+	printf("how many tiles do you want?\n");
+	scanf("%d", &tiles);
+	printf("what size would you like them to be?\n");
+	scanf("%d", &size);
+	
+  agl_window("Hello, World!", 500, 500);
+	agl_begin(0xFFFFFF);
+		gen(tiles, size, 0x000000);
+	agl_end();
 }

@@ -10,7 +10,7 @@ static int sh; /*screen height*/
 /***************/
 
 /*creates window*/
-void win(char *title, int width, int height)
+GLFWwindow *agl_window(char *title, int width, int height)
 {
 	glfwInit(); /*initialize glfw*/
   window = glfwCreateWindow(width, height, title, NULL, NULL); /*create a window with glfw*/
@@ -19,10 +19,12 @@ void win(char *title, int width, int height)
 	/*set screen variables for use in other functions*/
 	sw = width;
 	sh = height;
+	
+	return window;
 }
 
 /*window loop*/
-void begin(int hex) /*background values*/
+void agl_begin(int hex) /*background values*/
 {	
 	/*convert hex*/
 	float r, g, b;
@@ -40,7 +42,7 @@ void begin(int hex) /*background values*/
 }
 
 /*end drawing*/
-void end()
+void agl_end()
 {
 	glfwSwapBuffers(window);
 	while(!glfwWindowShouldClose(window))
@@ -55,7 +57,7 @@ void end()
 /****************/
 
 /*draw a line*/
-void dline(float x1, float y1, float x2, float y2, int hex)
+void agl_line(float x1, float y1, float x2, float y2, int hex)
 {
 	/*color values*/
 	float r, g, b;
@@ -80,7 +82,7 @@ void dline(float x1, float y1, float x2, float y2, int hex)
 }
 
 /*draw a rectangle*/
-void drect(float x, float y, float w, float h, int hex)
+void agl_rectangle(float x, float y, float w, float h, int hex)
 {
 	/*color values*/
 	float r, g, b;
@@ -107,7 +109,7 @@ void drect(float x, float y, float w, float h, int hex)
 }
 
 /*draw a circle*/
-void dcirc(float x, float y, float radx, float rady, int hex)
+void agl_circle(float x, float y, float radx, float rady, int hex)
 {
 	/*color values*/
 	float r, g, b;
