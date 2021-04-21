@@ -42,7 +42,7 @@ main()
 	while(!glfwWindowShouldClose(win))
 	{
 		begin(0xFFFFFF); /*set window color*/
-		glfwSwapBuffers();
+		glfwSwapBuffers(win);
 		glfwPollEvents();
 	}
 	glfwTerminate();
