@@ -2,8 +2,8 @@
 
 main()
 {
-  win("Hello, World!", 500, 500);
-	begin(0xFFFFFF); /*set window color*/
+  agl_window("Hello, World!", 500, 500);
+	agl_begin(0xFFFFFF); /*set window color*/
 		
-	end();
+	agl_end();
 }
