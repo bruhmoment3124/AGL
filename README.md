@@ -1,6 +1,6 @@
 # Overview
 
-## agl.h
+### agl.h
 
 #### agl_window(char *title, int width, int height)
 creates window, with a title and a specific width and height
@@ -21,7 +21,7 @@ takes x position, y position, width, height, color and draws a rectangle
 #### agl_circle(int x, int y, int radx, rady, int hex)
 takes x position, y position, radius x, radius y, color and draws a circle or oval
 
-## aglkey.h
+### aglkey.h
 
 #### agl_keyhold(int key)
 takes ascii keycode and returns value until key is released
