@@ -23,6 +23,8 @@ takes x position, y position, radius x, radius y, color and draws a circle or ov
 
 ## aglkey.h
 
+NOTE: aglkey.h HAS to be included AFTER agl.h
+
 #### agl_keyhold(int key)
 takes ascii keycode and returns value until key is released
 
