@@ -28,7 +28,7 @@ main()
 	printf("what size would you like them to be?\n");
 	scanf("%d", &size);
 	
-  agl_window("Hello, World!", 500, 500);
+  agl_window("procedural generation example", 500, 500);
 	agl_begin(0xFFFFFF);
 		gen(tiles, size, 0x000000);
 	agl_end();

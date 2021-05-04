@@ -3,7 +3,7 @@
 
 main()
 {
-  GLFWwindow *win = agl_window("Hello, World!", 500, 500);
+  GLFWwindow *win = agl_window("shapes example", 500, 500);
 	
 	int c1 = 0xFF0000, c2 = 0xFF0000, c3 = 0xFF0000, c4 = 0xFF0000;
 	while(!glfwWindowShouldClose(win))

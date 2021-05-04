@@ -7,7 +7,7 @@
 
 main()
 {
-	agl_window("Hello, World!", 500, 500);
+	agl_window("mandelbrot set example", 500, 500);
 	
 	double MinRe = -2.0;
 	double MaxRe = 1.0;
