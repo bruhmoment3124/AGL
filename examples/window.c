@@ -1,4 +1,4 @@
-#include "../AGL.h"
+#include <AGL/agl.h>
 
 main()
 {

@@ -1,5 +1,5 @@
-#include "../../AGL.h"
-#include "../../AGLKEY.h"
+#include <AGL/agl.h>
+#include <AGL/aglkey.h>
 
 main()
 {
