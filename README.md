@@ -71,3 +71,6 @@ the pros for the second method is:
 
 the cons for the second method is:
 - May be more complicated because of the use of GLFW functions
+
+# Build
+All you need to build AGL is glfw3
