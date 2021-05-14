@@ -31,7 +31,7 @@ takes ascii keycode and returns value until key is released
 # [Examples](https://github.com/bruhmoment3124/AGL/tree/main/examples)
 There are 2 ways to make a window with AGL, first is:
 ```
-#include <AGL/AGL.h>
+#include <AGL/agl.h>
 
 main()
 {
@@ -43,7 +43,7 @@ main()
 ```
 second is:
 ```
-#include <AGL/AGL.h>
+#include <AGL/agl.h>
 
 main()
 {
