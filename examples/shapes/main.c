@@ -18,8 +18,7 @@ main()
 			agl_rectangle(-500, 200, 150, 150, 0x00FF00);
 			agl_line(-500, -500, -200, -100, 0xFF0000);
 			agl_line(-500, -100, -200, -500, 0xFF0000);
-		glfwSwapBuffers(win);
-		glfwPollEvents();
+		agl_takeinput();
 		
 		if(agl_keyhold(87)) c1 = 0x00FF00;
 		if(agl_keyhold(65)) c2 = 0x00FF00;
