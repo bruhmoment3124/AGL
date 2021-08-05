@@ -5,19 +5,6 @@ GLFWwindow *window; /*create window object*/
 static int sw; /*screen width*/
 static int sh; /*screen height*/
 
-/* convert color values */
-void rgbtohex(int hex)
-{
-	/*color values*/
-	float r, g, b;
-	r = hex >> 16;
-	g = (hex & 0x00ff00) >> 8;
-	b = (hex & 0x0000ff);
-	r /= 255.0f; /*red*/
-	g /= 255.0f; /*green*/
-	b /= 255.0f; /*blue*/
-}
-
 /****************
 /window functions
 /***************/
@@ -39,9 +26,23 @@ GLFWwindow *agl_window(char *title, int width, int height)
 /*window loop*/
 void agl_begin(int hex) /*background values*/
 {	
-	rgbtohex(hex);
+	/*color values*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	r /= 255.0f; /*red*/
+	g /= 255.0f; /*green*/
+	b /= 255.0f; /*blue*/
+	
 	glClearColor(r, g, b, 255); /*clear window specified color*/
 	glClear(GL_COLOR_BUFFER_BIT); /*clear screen*/
+}
+
+void agl_takeinput()
+{
+	glfwSwapBuffers(window);
+	glfwPollEvents();
 }
 
 /*end drawing*/
@@ -62,7 +63,14 @@ void agl_end()
 /*draw a line*/
 void agl_line(float x1, float y1, float x2, float y2, int hex)
 {
-	rgbtohex(hex);
+	/*color values*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	r /= 255.0f; /*red*/
+	g /= 255.0f; /*green*/
+	b /= 255.0f; /*blue*/
 
 	/*convert opengl float values to standard X and Y*/
 	x1 /= (float)sw;
@@ -80,7 +88,14 @@ void agl_line(float x1, float y1, float x2, float y2, int hex)
 /*draw a rectangle*/
 void agl_rectangle(float x, float y, float w, float h, int hex)
 {
-	rgbtohex(hex);
+	/*color values*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	r /= 255.0f; /*red*/
+	g /= 255.0f; /*green*/
+	b /= 255.0f; /*blue*/
 	
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
@@ -100,7 +115,14 @@ void agl_rectangle(float x, float y, float w, float h, int hex)
 /*draw a circle*/
 void agl_circle(float x, float y, float radx, float rady, int hex)
 {
-	rgbtohex(hex);
+	/*color values*/
+	float r, g, b;
+	r = hex >> 16;
+	g = (hex & 0x00ff00) >> 8;
+	b = (hex & 0x0000ff);
+	r /= 255.0f; /*red*/
+	g /= 255.0f; /*green*/
+	b /= 255.0f; /*blue*/
 
 	/*convert opengl float values to standard X and Y*/
 	x /= (float)sw;
