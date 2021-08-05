@@ -5,6 +5,9 @@
 #### agl_window(char *title, int width, int height)
 creates window, with a title and a specific width and height
 
+#### agl_takeinput()
+begins taking input (see example 2 on how to use)
+
 #### agl_begin(int hex)
 takes a hexadecimal value and clears the screen that color
 
@@ -51,8 +54,7 @@ main()
 	while(!glfwWindowShouldClose(win))
 	{
 		agl_begin(0xFFFFFF); /*set window color*/
-		glfwSwapBuffers(win);
-		glfwPollEvents();
+		agl_takeinput();
 	}
 	glfwTerminate();
 }
