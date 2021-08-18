@@ -44,7 +44,8 @@ main()
 	agl_end();
 }
 ```
-second is:
+the pros for the first method is:
+- It's simple and easy to use
 ```
 #include <AGL/agl.h>
 
@@ -59,20 +60,11 @@ main()
 	glfwTerminate();
 }
 ```
-the first method uses AGL as a standalone graphics library and the second uses AGL in conjunction with GLFW
-
-the pros for the first method is:
-- It's simple and easy to use
-
-the cons for the first method is:
-- Input is not possible, it's only for drawing
-
 the pros for the second method is:
 - Allows for input
 - Can be used with GLFW
 
-the cons for the second method is:
-- May be more complicated because of the use of GLFW functions
+the first method uses AGL as a standalone graphics library and the second uses AGL in conjunction with GLFW
 
 # Build
 All you need to build AGL is glfw3
